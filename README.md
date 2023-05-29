@@ -23,3 +23,21 @@ Functionalities to test:
 -	Clear
 -	Close and Open the site – saved list
 -	All/active/complete – make sure to switch between in TCs
+
+3.	RELATED DOCUMENTS
+
+Test-script.py
+
+6.	TEST CASES
+
+Pre-condition: todolist.james.am is open in web browser 
+
+6.1	Input variations 
+6.2	Remove and Edit
+6.3	Select / Remove / Deselect All
+6.4	Clear
+6.5	Saved list
+
+7.	EXPLORATORY TESTING
+
+
