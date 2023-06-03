@@ -5,6 +5,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import random
 import string
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import NoSuchElementException
+import signal
 
 PATH = "home/magdalena/Documents/chromedriver.exe"
 URL = "https://todolist.james.am/#/"
@@ -12,6 +15,7 @@ URL = "https://todolist.james.am/#/"
 class ToDo(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
+
     def test_enter_item(self):
         driver = self.driver
         driver.get(URL)
@@ -51,6 +55,15 @@ class ToDo(unittest.TestCase):
         time.sleep(3)
         elem = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[1]/div/label")
         assert elem.text == item1
+        achains = ActionChains(driver)
+        achains.move_to_element(elem).perform()
+        time.sleep(3)
+        remove_button = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li/div/button")
+        remove_button.click()
+        time.sleep(3)
+        with self.assertRaises(NoSuchElementException):
+            driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[1]/div/label")
+
 
     def test_edit(self):
         pass
