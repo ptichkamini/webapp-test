@@ -21,6 +21,24 @@ class ToDo(unittest.TestCase):
         time.sleep(3)
         elem = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[1]/div/label")
         assert elem.text == "Hi!"
+
+    def test_enter_items(self):
+        driver = self.driver
+        driver.get(URL)
+        time.sleep(3)
+        input_bar = driver.find_element(By.XPATH, "/html/body/ng-view/section/header/form/input")
+        input_bar.send_keys("Hi!")
+        input_bar.send_keys(Keys.RETURN)
+        input_bar.send_keys("Bye!")
+        input_bar.send_keys(Keys.RETURN)
+        time.sleep(3)
+        elem = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[1]/div/label")
+        assert elem.text == "Hi!"
+        elem = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[2]/div/label")
+        assert elem.text == "Bye!"
+
+
+
     def tearDown(self):
         self.driver.close()
 
