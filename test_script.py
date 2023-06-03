@@ -36,8 +36,22 @@ class ToDo(unittest.TestCase):
         assert elem.text == "Hi!"
         elem = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[2]/div/label")
         assert elem.text == "Bye!"
+        # todo: enter random elements using a loop
 
+    def test_remove(self):
+        pass
 
+    def test_edit(self):
+        pass
+
+    def test_select_all(self):
+        pass
+
+    def test_counter(self):
+        pass
+
+    def test_refresh(self):
+        pass
 
     def tearDown(self):
         self.driver.close()
