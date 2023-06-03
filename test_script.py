@@ -86,7 +86,24 @@ class ToDo(unittest.TestCase):
         assert (item1 + " NEW!")
 
     def test_select_all(self):
-        pass
+        driver = self.driver
+        driver.get(URL)
+        time.sleep(3)
+        input_bar = driver.find_element(By.XPATH, "/html/body/ng-view/section/header/form/input")
+        item1 = ''.join(random.sample(string.ascii_letters, 15))
+        item2 = ''.join(random.sample(string.ascii_letters, 20))
+        input_bar.send_keys(item1)
+        input_bar.send_keys(Keys.RETURN)
+        input_bar.send_keys(item2)
+        input_bar.send_keys(Keys.RETURN)
+        time.sleep(3)
+        select_all = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/label")
+        select_all.click()
+        time.sleep(3)
+        if driver.find_element(By.CLASS_NAME, "completed").is_displayed():
+            print("Item is checked")
+        else:
+            print("Item is not checked")
 
     def test_counter(self):
         pass
