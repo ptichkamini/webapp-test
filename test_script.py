@@ -55,8 +55,8 @@ class ToDo(unittest.TestCase):
         time.sleep(3)
         elem = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[1]/div/label")
         assert elem.text == item1
-        achains = ActionChains(driver)
-        achains.move_to_element(elem).perform()
+        a_chains = ActionChains(driver)
+        a_chains.move_to_element(elem).perform()
         time.sleep(3)
         remove_button = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li/div/button")
         remove_button.click()
@@ -66,7 +66,24 @@ class ToDo(unittest.TestCase):
 
 
     def test_edit(self):
-        pass
+        driver = self.driver
+        driver.get(URL)
+        time.sleep(3)
+        input_bar = driver.find_element(By.XPATH, "/html/body/ng-view/section/header/form/input")
+        item1 = ''.join(random.sample(string.ascii_letters, 15))
+        input_bar.send_keys(item1)
+        input_bar.send_keys(Keys.RETURN)
+        time.sleep(3)
+        elem = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[1]/div/label")
+        assert elem.text == item1
+        a_chains = ActionChains(driver)
+        a_chains.double_click(elem).perform()
+        edit_field = driver.find_element(By.XPATH,"/html/body/ng-view/section/section/ul/li/form/input")
+        edit_field.send_keys(" NEW!")
+        time.sleep(3)
+        input_bar.send_keys(Keys.RETURN)
+        time.sleep(3)
+        assert (item1 + " NEW!")
 
     def test_select_all(self):
         pass
