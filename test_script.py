@@ -117,9 +117,24 @@ class ToDo(unittest.TestCase):
         time.sleep(3)
         self.assertEqual(counter, 1)
 
-
     def test_refresh(self):
-        pass
+        driver = self.driver
+        driver.get(URL)
+        time.sleep(3)
+        input_bar = driver.find_element(By.XPATH, "/html/body/ng-view/section/header/form/input")
+        item1 = ''.join(random.sample(string.ascii_letters, 15))
+        item2 = ''.join(random.sample(string.ascii_letters, 20))
+        input_bar.send_keys(item1)
+        input_bar.send_keys(Keys.RETURN)
+        input_bar.send_keys(item2)
+        input_bar.send_keys(Keys.RETURN)
+        time.sleep(3)
+        driver.refresh()
+        time.sleep(3)
+        elem1 = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[1]/div/label")
+        elem2 = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[2]/div/label")
+        assert elem1.text == item1
+        assert elem2.text == item2
 
     def tearDown(self):
         self.driver.close()
