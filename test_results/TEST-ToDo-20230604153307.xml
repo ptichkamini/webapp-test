@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<testsuite name="ToDo-20230604153307" tests="1" time="17.905" failures="0" errors="1">
+	<testcase classname="ToDo" name="test_counter" time="17.905">
+		<error type="AssertionError" message="&lt;selenium.webdriver.remote.webelement.Web[102 chars]_4&quot;)&gt; != '0'"><![CDATA[Traceback (most recent call last):
+  File "/home/magdalena/webapp-test/test_script.py", line 122, in test_counter
+    self.assertEqual(counter, "0")
+AssertionError: <selenium.webdriver.remote.webelement.Web[102 chars]_4")> != '0'
+]]></error>
+	</testcase>
+	<system-out><![CDATA[<selenium.webdriver.remote.webelement.WebElement (session="1363ab8f319059df56ced554a389fd59", element="1976877997FE81FF3129C36CE32304CD_element_4")>
+<class 'selenium.webdriver.remote.webelement.WebElement'>
+]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>

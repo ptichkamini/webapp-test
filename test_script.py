@@ -8,10 +8,12 @@ import string
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
 import signal
+import xmlrunner
+
 
 PATH = "home/magdalena/Documents/chromedriver.exe"
 URL = "https://todolist.james.am/#/"
-
+suite = unittest.TestSuite()
 class ToDo(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -110,12 +112,14 @@ class ToDo(unittest.TestCase):
         driver.get(URL)
         time.sleep(3)
         input_bar = driver.find_element(By.XPATH, "/html/body/ng-view/section/header/form/input")
-        counter = driver.find_element(By.CLASS_NAME, "todo-count")
+        counter = driver.find_element(By.XPATH, "/html/body/ng-view/section/footer/span/strong").get_property("childElementCount")
+        print(counter)
         item1 = ''.join(random.sample(string.ascii_letters, 15))
         input_bar.send_keys(item1)
         input_bar.send_keys(Keys.RETURN)
         time.sleep(3)
         self.assertEqual(counter, 1)
+
 
     def test_refresh(self):
         driver = self.driver
@@ -135,6 +139,7 @@ class ToDo(unittest.TestCase):
         elem2 = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[2]/div/label")
         assert elem1.text == item1
         assert elem2.text == item2
+
 
     def tearDown(self):
         self.driver.close()

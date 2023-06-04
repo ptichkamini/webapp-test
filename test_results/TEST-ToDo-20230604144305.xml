@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<testsuite name="ToDo-20230604144305" tests="7" time="121.636" failures="0" errors="1">
+	<testcase classname="ToDo" name="test_edit" time="22.493"/>
+	<testcase classname="ToDo" name="test_enter_item" time="16.225"/>
+	<testcase classname="ToDo" name="test_enter_items" time="14.134"/>
+	<testcase classname="ToDo" name="test_refresh" time="14.744"/>
+	<testcase classname="ToDo" name="test_remove" time="16.724"/>
+	<testcase classname="ToDo" name="test_select_all" time="17.097"/>
+	<testcase classname="ToDo" name="test_counter" time="20.219">
+		<error type="AssertionError" message="&lt;selenium.webdriver.remote.webelement.Web[102 chars]_4&quot;)&gt; != 1"><![CDATA[Traceback (most recent call last):
+  File "/home/magdalena/webapp-test/test_script.py", line 119, in test_counter
+    self.assertEqual(counter, 1)
+AssertionError: <selenium.webdriver.remote.webelement.Web[102 chars]_4")> != 1
+]]></error>
+	</testcase>
+	<system-out><![CDATA[Item is checked
+]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>
