@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-<testsuite name="ToDo-20230604154457" tests="1" time="21.199" failures="0" errors="0">
-	<testcase classname="ToDo" name="test_counter" time="21.199"/>
-	<system-out><![CDATA[]]></system-out>
-	<system-err><![CDATA[]]></system-err>
-</testsuite>
