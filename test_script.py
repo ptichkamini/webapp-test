@@ -7,7 +7,7 @@ import random
 import string
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
-import signal
+import xmlrunner
 
 PATH = "home/magdalena/Documents/chromedriver.exe"
 URL = "https://todolist.james.am/#/"
@@ -30,7 +30,6 @@ class ToDo(unittest.TestCase):
         assert elem.text == "Hi!"
         elem = driver.find_element(By.XPATH, "/html/body/ng-view/section/section/ul/li[2]/div/label")
         assert elem.text == "Bye!"
-        # todo: enter random elements using a loop and random
 
     def test_remove(self):
         driver = self.driver
@@ -128,4 +127,4 @@ class ToDo(unittest.TestCase):
         self.driver.close()
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'), failfast=False, buffer=False, catchbreak=False)

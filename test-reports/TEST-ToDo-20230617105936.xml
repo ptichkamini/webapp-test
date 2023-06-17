@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<testsuite name="ToDo-20230617105936" tests="6" time="99.247" failures="0" errors="1">
+	<testcase classname="ToDo" name="test_edit" time="23.730"/>
+	<testcase classname="ToDo" name="test_enter_items" time="11.921"/>
+	<testcase classname="ToDo" name="test_refresh" time="13.971"/>
+	<testcase classname="ToDo" name="test_remove" time="15.633"/>
+	<testcase classname="ToDo" name="test_select_all" time="12.790"/>
+	<testcase classname="ToDo" name="test_counter" time="21.202">
+		<error type="AssertionError" message="0 != 1"><![CDATA[Traceback (most recent call last):
+  File "/home/magdalena/webapp-test/test_script.py", line 105, in test_counter
+    self.assertEqual(counter, 1)
+AssertionError: 0 != 1
+]]></error>
+	</testcase>
+	<system-out><![CDATA[Item is checked
+]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>
